@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.*;
 import java.util.List;
 import java.util.Optional;
 @CrossOrigin("*")
@@ -54,8 +53,12 @@ public class EmpleadosController {
         return "Empleado despedido";
     }
     @PutMapping(value = "/update/{id}")
-    public String updateEmpleado(@PathVariable String id){
-        return "fail";
+    public String updateEmpleado(@PathVariable String id,@RequestBody Empleado empleado){
+        //Optional<Empleado> lista = repository.findById(id);
+
+        repository.save(empleado);
+        //return lista.get().getId();
+        return "update exitoso";
     }
 
 }
