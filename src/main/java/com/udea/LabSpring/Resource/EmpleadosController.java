@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.awt.*;
 import java.util.List;
 import java.util.Optional;
-
+@CrossOrigin("*")
 @RestController
 public class EmpleadosController {
 
@@ -19,8 +19,20 @@ public class EmpleadosController {
 
     @PostMapping("/addEmp")
     public String addEmpleado(@RequestBody Empleado empleado){
-        repository.save(empleado);
-        return "Agregado con id: ";
+        if(empleado.getEdad()<18 || empleado.getSalario()<0){
+            return "Datos invalidos";
+        }
+        else {
+            try{
+                repository.save(empleado);
+                return "Agregado con id: "+empleado.getId();
+            }
+            catch (Exception e)
+            {
+                return e.getMessage();
+            }
+        }
+
     }
 
     @GetMapping(value = "/findAllEmp",produces = MediaType.APPLICATION_JSON_VALUE)
@@ -28,7 +40,7 @@ public class EmpleadosController {
         return repository.findAll();
     }
 
-    @GetMapping("/findEmp/{id}")
+    @GetMapping(value ="/findEmp/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
     public Optional<Empleado> getEmpleado(@PathVariable int id){
         return repository.findById(id);
     }
