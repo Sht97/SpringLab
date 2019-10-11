@@ -5,13 +5,18 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+
 @Getter
 @Setter
 @ToString
+
 @ApiModel(description="Toda la información personal del empleado")
 
 @Document(collection = "Empleados")
