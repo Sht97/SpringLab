@@ -25,7 +25,7 @@ import java.util.Date;
 public class Empleado {
     @ApiModelProperty(notes = "ID generado para el empleado")
     @Id
-    private int id;
+    private String documento;
 
     @ApiModelProperty(notes = "Nombre completo de el empleado")
     private  String nombreCompleto;
@@ -59,7 +59,7 @@ public class Empleado {
         return edad;
     }
 
-    public int getId() {
-        return id;
+    public String getId() {
+        return documento;
     }
 }
