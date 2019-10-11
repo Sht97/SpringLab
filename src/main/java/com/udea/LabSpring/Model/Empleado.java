@@ -18,7 +18,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Empleado {
     @ApiModelProperty(notes = "ID generado para el empleado")
     @Id
-    private String id;
+    private int id;
 
     @ApiModelProperty(notes = "Nombre completo de el empleado")
     private  String nombreCompleto;
