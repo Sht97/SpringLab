@@ -24,6 +24,9 @@ public class EmpleadosController {
         }
         else {
             try{
+                if(repository.existsById(empleado.getId())){
+                    return "ya existe";
+                }
                 repository.save(empleado);
                 return "Agregado con id: "+empleado.getId();
             }
@@ -41,14 +44,18 @@ public class EmpleadosController {
     }
 
     @GetMapping(value ="/findEmp/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
-    public Optional<Empleado> getEmpleado(@PathVariable int id){
+    public Optional<Empleado> getEmpleado(@PathVariable String id){
         return repository.findById(id);
     }
 
     @DeleteMapping("/delEmp/{id}")
-    public String deleteEmpleado(@PathVariable int id){
+    public String deleteEmpleado(@PathVariable String id){
         repository.deleteById(id);
         return "Empleado despedido";
+    }
+    @PutMapping(value = "/update/{id}")
+    public String updateEmpleado(@PathVariable String id){
+        return "fail";
     }
 
 }
