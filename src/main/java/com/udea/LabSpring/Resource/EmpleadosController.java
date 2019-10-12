@@ -52,10 +52,9 @@ public class EmpleadosController {
         repository.deleteById(id);
         return "Empleado despedido";
     }
-    @PutMapping(value = "/update/{id}")
-    public String updateEmpleado(@PathVariable String id,@RequestBody Empleado empleado){
+    @PutMapping(value = "/update")
+    public String updateEmpleado(@RequestBody Empleado empleado){
         //Optional<Empleado> lista = repository.findById(id);
-
         repository.save(empleado);
         //return lista.get().getId();
         return "update exitoso";
