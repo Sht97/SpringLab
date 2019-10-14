@@ -4,7 +4,7 @@ jdk:
 deploy:
  provider: heroku
  api_key:
-  secure: $HEROKU_API_KEY
+  secure: 13d91160-7365-492c-b6b9-a5739d748e89
 services:
  - mongodb
 
