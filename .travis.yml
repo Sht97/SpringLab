@@ -1,12 +1,12 @@
 language: java
 jdk:
  - openjdk9
+services:
+ - mongodb
+before_install:
+  - chmod +x mvnw
 deploy:
  provider: heroku
  api_key:
   secure: 13d91160-7365-492c-b6b9-a5739d748e89
-services:
- - mongodb
-
-before_install:
-  - chmod +x mvnw
+  app: springlab
