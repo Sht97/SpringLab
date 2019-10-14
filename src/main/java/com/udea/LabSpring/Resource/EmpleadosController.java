@@ -24,7 +24,7 @@ public class EmpleadosController {
         else {
             try{
                 if(repository.existsById(empleado.getId())){
-                    return "ya existe";
+                    return "ya existe JOJOJOJO";
                 }
                 repository.save(empleado);
                 return "Agregado con id: "+empleado.getId();
