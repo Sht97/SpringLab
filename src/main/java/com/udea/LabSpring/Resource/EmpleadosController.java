@@ -15,7 +15,6 @@ public class EmpleadosController {
     @Autowired
     private EmpleadoRepository repository;
 
-
     @PostMapping("/addEmp")
     public String addEmpleado(@RequestBody Empleado empleado){
         if(empleado.getEdad()<18 || empleado.getSalario()<0){
@@ -24,7 +23,7 @@ public class EmpleadosController {
         else {
             try{
                 if(repository.existsById(empleado.getId())){
-                    return "ya existe JOJOJOJO";
+                    return "ya existe";
                 }
                 repository.save(empleado);
                 return "Agregado con id: "+empleado.getId();

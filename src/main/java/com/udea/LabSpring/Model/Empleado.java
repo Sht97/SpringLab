@@ -1,5 +1,4 @@
 package com.udea.LabSpring.Model;
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
@@ -9,16 +8,12 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.Date;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
 @Getter
 @Setter
 @ToString
-
 @ApiModel(description="Toda la información personal del empleado")
 
 @Document(collection = "Empleados")
@@ -36,7 +31,7 @@ public class Empleado {
     @ApiModelProperty(notes = "Cargo del empleado")
     private String cargo;
 
-    @ApiModelProperty(notes = "Salario para el empleado para el empleado")
+    @ApiModelProperty(notes = "Salario para el empleado")
     private Double salario;
 
     @ApiModelProperty(notes = "género sexual del empleado")
